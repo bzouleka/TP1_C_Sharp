@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Console;
 
 namespace ConsoleApp1
 {
@@ -15,14 +16,10 @@ namespace ConsoleApp1
             var now = new DateTime(2018, 6, 18, 18, 00, 32);
             Message message = new Message(now, 8, 12, 19);
             
-
+            do{
             Console.WriteLine(message.GetHelloMessage() + " " + Environment.UserName);
             Console.ReadKey();
-
-
-
-
-
+            } while (ReadLine() != "exit");
         }
     }
 }
