@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Metro
+namespace LibMetro
 {
-    class Lines
+    public class Lines
     {
         // fonctions generer par jsontocsharp a partir du json de metromobilité
         public string id { get; set; }
