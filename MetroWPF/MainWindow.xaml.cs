@@ -23,6 +23,10 @@ namespace MetroWPF
         public MainWindow()
         {
             InitializeComponent();
+
+            this.Title = "Metro Mobilité";
+            this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+
         }
     }
 }
