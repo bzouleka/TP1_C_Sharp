@@ -14,11 +14,11 @@ namespace LibMetro
     public class MetroLib
     {
 
-        public static List<Lines> BusStopProxity()
+        public static List<Lines> BusStopProxity(string longitude, string latitude, string rayon )
         {
             // Create a request for the URL.   
             WebRequest request = WebRequest.Create(
-              "https://data.metromobilite.fr/api/linesNear/json?x=5.709360123&y=45.176494599999984&dist=400&details=true");
+              "https://data.metromobilite.fr/api/linesNear/json?x=" + longitude + "&y=" + latitude + "&dist=" + rayon + "&details=true");
             // Get the response.  
             WebResponse response = request.GetResponse();
             // Display the status.  
@@ -42,5 +42,9 @@ namespace LibMetro
             return listSansDoublon;
             
         }
+
+      
+
+       
     }
 }

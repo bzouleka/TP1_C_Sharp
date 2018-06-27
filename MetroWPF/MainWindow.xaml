@@ -3,34 +3,41 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:m="clr-namespace:Microsoft.Maps.MapControl.WPF;assembly=Microsoft.Maps.MapControl.WPF"
         xmlns:local="clr-namespace:MetroWPF"
         mc:Ignorable="d"
         Title="MainWindow" Height="700" Width="700">
 
 
-    <Grid Margin="67,40,56,28" RenderTransformOrigin="0.394,0.499">
-        <Grid.Background>
-            <ImageBrush Opacity="0.2" ImageSource="http://www.medicalps.eu/wp-content/uploads/2016/03/grenoble-alpes-metropole.png"/>
-        </Grid.Background>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="187" />
-            <ColumnDefinition Width="313" />
-            <ColumnDefinition Width="Auto" />
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-        </Grid.RowDefinitions>
-        <Label Margin="0,22,30,-31" Grid.Row="2">Longitude:</Label>
-        <TextBox Margin="162,22,18,-31" Grid.ColumnSpan="2" Grid.Row="2" />
-        <Label Grid.Row="2" Margin="0,54,30,-63">Latitude:</Label>
-        <TextBox Grid.Row="2" Margin="162,54,18,-63" Grid.ColumnSpan="2" />
+    
+    <StackPanel>
+       
+        <Label  >Longitude:</Label>
+        <TextBox x:Name="longitude" Text="5.709360123" Height="33" VerticalAlignment="Top"/>
+        <Label >Latitude:</Label>
+        <TextBox x:Name="latitude" Text="45.176494599999984" />
+        <Label >Rayon:</Label>
+        <TextBox x:Name="rayon" Text="400" />
 
-        <StackPanel Margin="8,100,8,-108" Grid.Row="2">
-            <Button MinWidth="93" Margin="198,0,-236,0" Height="25">Rechercher</Button>
+
+        <Button  MinWidth="93" Height="25" Content="Rechercher" HorizontalAlignment="Left" Width="210"  Click="ButtonClick"/>
+        <ListView x:Name="busStop" Height="100">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <TextBlock Text="{Binding name}"/>
+                        <TextBlock Text="{Binding lon}"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <StackPanel Height="394">
+
+            <m:Map x:Name="carte"  CredentialsProvider="" Center="45.176494,5.709360" ZoomLevel="16" Height="357" />
         </StackPanel>
-    </Grid>
+        
+
+    </StackPanel>
 
 
 </Window>

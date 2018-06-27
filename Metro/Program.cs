@@ -20,7 +20,7 @@ namespace Metro
         static void Main(string[] args)
         {
 
-            List<Lines> listSansDoublon = MetroLib.BusStopProxity();
+            List<Lines> listSansDoublon = MetroLib.BusStopProxity(lo);
 
 
 
