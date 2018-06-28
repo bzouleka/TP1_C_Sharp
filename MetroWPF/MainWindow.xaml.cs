@@ -24,10 +24,12 @@ namespace MetroWPF
     public partial class MainWindow : Window
     {
         private object line;
+        private MetroLib ligneMetro;
 
         public MainWindow()
         {
-            InitializeComponent();
+           InitializeComponent();
+            ligneMetro = new MetroLib();
 
             /*this.Title = "Metro Mobilité";
             this.WindowStartupLocation = WindowStartupLocation.CenterScreen;*/
@@ -43,9 +45,11 @@ namespace MetroWPF
            
             MetroLib metro = new MetroLib();
 
-            List<Lines> listSansDoublon = MetroLib.BusStopProxity(Lon, Lat, Rayon);
+            ligneMetro.lignes = ligneMetro.BusStopProxity(Lon, Lat, Rayon);
 
-            foreach (Lines line in listSansDoublon) // iteration ligne par ligne 
+
+
+            foreach (Lines line in ligneMetro.lignes) // iteration ligne par ligne 
             {
                 Console.WriteLine($"Nom de la ligne {line.name}");
 
@@ -61,7 +65,7 @@ namespace MetroWPF
                 carte.Children.Add(pin);
 
             }
-            busStop.ItemsSource = listSansDoublon;
+            busStop.ItemsSource = ligneMetro.lignes;
             Console.ReadLine();
 
         

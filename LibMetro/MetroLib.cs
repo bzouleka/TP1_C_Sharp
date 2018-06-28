@@ -14,7 +14,12 @@ namespace LibMetro
     public class MetroLib
     {
 
-        public static List<Lines> BusStopProxity(string longitude, string latitude, string rayon )
+        public MetroLib()
+        {
+
+        }
+
+        public List<Lines> BusStopProxity(string longitude, string latitude, string rayon )
         {
             // Create a request for the URL.   
             WebRequest request = WebRequest.Create(
@@ -42,6 +47,10 @@ namespace LibMetro
             return listSansDoublon;
             
         }
+
+        public List<Lines> lignes { get; set; }
+
+
 
       
 

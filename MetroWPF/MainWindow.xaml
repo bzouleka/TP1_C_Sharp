@@ -1,27 +1,27 @@
-﻿<Window x:Class="MetroWPF.MainWindow"
+﻿<Window
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:m="clr-namespace:Microsoft.Maps.MapControl.WPF;assembly=Microsoft.Maps.MapControl.WPF"
         xmlns:local="clr-namespace:MetroWPF"
+        xmlns:LibMetro="clr-namespace:LibMetro;assembly=LibMetro" x:Class="MetroWPF.MainWindow"
         mc:Ignorable="d"
         Title="MainWindow" Height="700" Width="700">
 
-
-    
     <StackPanel>
-       
-        <Label  >Longitude:</Label>
+
+        <Label Content="Longitude:"  />
         <TextBox x:Name="longitude" Text="5.709360123" Height="33" VerticalAlignment="Top"/>
-        <Label >Latitude:</Label>
+        <Label Content="Latitude:" />
         <TextBox x:Name="latitude" Text="45.176494599999984" />
-        <Label >Rayon:</Label>
+        <Label Content="Rayon:" />
         <TextBox x:Name="rayon" Text="400" />
 
 
         <Button  MinWidth="93" Height="25" Content="Rechercher" HorizontalAlignment="Left" Width="210"  Click="ButtonClick"/>
         <ListView x:Name="busStop" Height="100">
+
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <StackPanel>
@@ -30,12 +30,13 @@
                     </StackPanel>
                 </DataTemplate>
             </ListView.ItemTemplate>
+           
         </ListView>
         <StackPanel Height="394">
 
             <m:Map x:Name="carte"  CredentialsProvider="" Center="45.176494,5.709360" ZoomLevel="16" Height="357" />
         </StackPanel>
-        
+
 
     </StackPanel>
 
